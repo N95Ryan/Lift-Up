@@ -15,7 +15,10 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/react-native-fontawesome": "^0.3.2",
     "@react-navigation/native": "^7.0.14",
+    "apollo-client": "^2.6.10",
     "expo": "~52.0.27",
     "expo-font": "~13.0.3",
     "expo-linking": "~7.0.4",
@@ -28,10 +31,14 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-native": "0.76.6",
+    "react-native-dotenv": "^3.4.11",
     "react-native-gesture-handler": "^2.22.1",
+    "react-native-navigation": "^7.43.0",
+    "react-native-paper": "^5.13.1",
     "react-native-reanimated": "^3.16.7",
     "react-native-safe-area-context": "^5.1.0",
     "react-native-screens": "^4.5.0",
+    "react-native-svg": "^15.11.1",
     "react-native-web": "~0.19.13"
   },
   "devDependencies": {
