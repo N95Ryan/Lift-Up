@@ -1,17 +1,14 @@
 import { StyleSheet } from "react-native";
 import { View } from "@/components/Themed";
-import { LinearGradient } from "expo-linear-gradient";
 import WelcomeBlock from "@/components/welcomeBlock";
 
-export default function TabOneScreen() {
+export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <WelcomeBlock />
-      <LinearGradient
-        colors={["rgba(234,91,66,0.8)", "rgba(218,37,125,0.8)"]}
-        style={styles.overlay}
-      />
-    </View>
+    <>
+      <View style={styles.container}>
+        <WelcomeBlock />
+      </View>
+    </>
   );
 }
 
@@ -20,16 +17,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#EA5B42",
   },
 
   overlay: {
     ...StyleSheet.absoluteFillObject,
-  },
-
-  content: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 20,
   },
 });
