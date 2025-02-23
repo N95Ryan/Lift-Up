@@ -1,17 +1,15 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
-import { Text, View } from "@/components/Themed";
-import { useRouter } from "expo-router";
+import { StyleSheet } from "react-native";
+import { View } from "@/components/Themed";
 import { LinearGradient } from "expo-linear-gradient";
+import WelcomeBlock from "@/components/welcomeBlock";
 
 export default function TabOneScreen() {
-  const router = useRouter();
-
   return (
     <View style={styles.container}>
+      <WelcomeBlock />
       <LinearGradient
-        // Background Linear Gradient
-        colors={["#ea5b42", "#da257d"]}
-        style={styles.background}
+        colors={["rgba(234,91,66,0.8)", "rgba(218,37,125,0.8)"]}
+        style={styles.overlay}
       />
     </View>
   );
@@ -22,13 +20,16 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "orange",
   },
-  background: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
+
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+  },
+
+  content: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 20,
   },
 });
