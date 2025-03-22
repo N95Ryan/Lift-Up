@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default function ProfileScreen() {
+export default function WorkoutScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Profil</Text>
+      <Text style={styles.title}>Entraînement</Text>
     </View>
   );
 }
