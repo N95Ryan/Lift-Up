@@ -5,10 +5,19 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarStyle: { backgroundColor: "#1E1E1E" },
+        tabBarStyle: {
+          backgroundColor: "#1E1E1E",
+          borderTopWidth: 0,
+          elevation: 0,
+          height: 60,
+        },
         tabBarActiveTintColor: "#EA5B42",
         tabBarInactiveTintColor: "white",
         headerShown: false,
+        tabBarLabelStyle: {
+          fontSize: 12,
+          marginBottom: 5,
+        },
       }}
     >
       <Tabs.Screen
@@ -21,16 +30,25 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="converter"
+        name="search"
         options={{
-          title: "Converter",
+          title: "Search",
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="calculator" size={24} color={color} />
+            <FontAwesome name="search" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="auth"
+        name="stats"
+        options={{
+          title: "Stats",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="bar-chart" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
         options={{
           title: "Profile",
           tabBarIcon: ({ color }) => (
