@@ -1,3 +1,4 @@
+import * as React from "react";
 import { StyleSheet } from "react-native";
 import { View } from "@/components/Themed";
 import WelcomeBlock from "@/components/welcomeBlock";

@@ -2,8 +2,11 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "@/components/Themed";
 import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function WelcomeBlock() {
+  const router = useRouter();
+
   return (
     <>
       <StatusBar style="light" hidden={true} />
@@ -16,7 +19,10 @@ export default function WelcomeBlock() {
         <Text style={styles.title}>Lift Up</Text>
         <Text style={styles.subtitle}>Elevate your workouts !</Text>
 
-        <TouchableOpacity style={styles.button} onPress={() => {}}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push("/auth")}
+        >
           <Text style={styles.buttonText}>Get Started</Text>
         </TouchableOpacity>
       </View>
@@ -57,19 +63,18 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#fff",
+    backgroundColor: "#1E1E1E",
     padding: 15,
-    borderRadius: 50,
+    borderRadius: 8,
+    width: 200,
     alignItems: "center",
-    justifyContent: "center",
     marginTop: 20,
-    width: 250,
+    marginBottom: 20,
   },
 
   buttonText: {
-    color: "#28262C",
-    fontSize: 18,
+    color: "white",
+    fontSize: 16,
     fontWeight: "bold",
-    opacity: 0.8,
   },
 });
