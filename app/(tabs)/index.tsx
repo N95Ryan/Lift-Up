@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import Navbar from "@/components/Navbar";
 
 interface WorkoutCategory {
   id: number;
@@ -106,11 +107,8 @@ export default function HomeScreen() {
       case "home":
         router.push("/(tabs)");
         break;
-      case "workout":
-        router.push("/(tabs)/workout");
-        break;
-      case "stats":
-        router.push("/(tabs)/stats");
+      case "converter":
+        router.push("/(tabs)/converter");
         break;
       case "profile":
         router.push("/(tabs)/profile");
@@ -212,84 +210,7 @@ export default function HomeScreen() {
           ))}
         </View>
       </ScrollView>
-
-      <View style={styles.navbar}>
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => handleTabPress("home")}
-        >
-          <Ionicons
-            name={activeTab === "home" ? "home" : "home-outline"}
-            size={24}
-            color={activeTab === "home" ? "#EA5B42" : "#666"}
-          />
-          <Text
-            style={[
-              styles.navText,
-              activeTab === "home" && styles.navTextActive,
-            ]}
-          >
-            Accueil
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => handleTabPress("workout")}
-        >
-          <Ionicons
-            name={activeTab === "workout" ? "barbell" : "barbell-outline"}
-            size={24}
-            color={activeTab === "workout" ? "#EA5B42" : "#666"}
-          />
-          <Text
-            style={[
-              styles.navText,
-              activeTab === "workout" && styles.navTextActive,
-            ]}
-          >
-            Entraînement
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => handleTabPress("stats")}
-        >
-          <Ionicons
-            name={activeTab === "stats" ? "stats-chart" : "stats-chart-outline"}
-            size={24}
-            color={activeTab === "stats" ? "#EA5B42" : "#666"}
-          />
-          <Text
-            style={[
-              styles.navText,
-              activeTab === "stats" && styles.navTextActive,
-            ]}
-          >
-            Statistiques
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => handleTabPress("profile")}
-        >
-          <Ionicons
-            name={activeTab === "profile" ? "person" : "person-outline"}
-            size={24}
-            color={activeTab === "profile" ? "#EA5B42" : "#666"}
-          />
-          <Text
-            style={[
-              styles.navText,
-              activeTab === "profile" && styles.navTextActive,
-            ]}
-          >
-            Profil
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <Navbar activeTab="home" />
     </SafeAreaView>
   );
 }
@@ -437,32 +358,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "white",
     opacity: 0.9,
-  },
-  navbar: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    backgroundColor: "white",
-    paddingVertical: 10,
-    paddingBottom: 25,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    elevation: 5,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-  },
-  navItem: {
-    alignItems: "center",
-  },
-  navText: {
-    fontSize: 12,
-    color: "#666",
-    marginTop: 4,
-  },
-  navTextActive: {
-    color: "#EA5B42",
-    fontWeight: "bold",
   },
 });
