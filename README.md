@@ -1,4 +1,4 @@
-# Lift Up! 🏋️‍♂️
+# Lift Up 🏋️‍♂️
 
 A mobile application designed for bodybuilders and fitness enthusiasts to easily convert weights between pounds and kilograms.
 
@@ -56,7 +56,7 @@ All commands are run from the root of the project, from a terminal:
 
 ## 👥 Author
 
-Let's connect!
+Let's connect !
 
 - 💻 Portfolio → **[ryan-pina.dev](https://ryan-pina.dev/en)**
 - 💼 LinkedIn → **[Ryan Pina-Silasse](https://www.linkedin.com/in/ryan-pina-silasse/)**
