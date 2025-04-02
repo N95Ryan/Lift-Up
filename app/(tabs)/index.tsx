@@ -7,120 +7,133 @@ import {
   ButtonText,
   Image,
   HStack,
-  VStack,
   Icon,
 } from "@gluestack-ui/themed";
-import { ArrowRightIcon } from "@gluestack-ui/themed"; // Icône pour le bouton
-import Navbar from "@/components/Navbar";
+import { ArrowRightIcon } from "@gluestack-ui/themed";
 import Header from "@/components/Header";
+import Navbar from "@/components/Navbar"; // Assurez-vous que le chemin est correct
 
 export default function HomeScreen() {
   const router = useRouter();
 
   return (
-    <SafeAreaView className="flex-1 bg-gray-900">
-      <ScrollView className="flex-1">
-        <Header userName="User" />
-
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#1F2937" }}>
+      <Header userName="User" />
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 100 }} // Espace pour la navbar
+        style={{ flex: 1 }}
+      >
         {/* Section principale avec image et texte */}
-        <Box className="relative mx-4 mt-4 rounded-xl overflow-hidden">
+        <Box mx="$4" mt="$4" rounded="$xl" overflow="hidden">
           <Image
             source={{
               uri: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
             }}
             alt="Workout Banner"
-            className="w-full h-48"
+            w="$full"
+            h={48}
           />
-          <Box className="absolute inset-0 bg-black/50 p-4">
-            <Text className="text-2xl font-bold text-white">
+          <Box position="absolute" inset={0} bg="$black" opacity={0.5} p="$4">
+            <Text color="$white" fontSize="$2xl" fontWeight="$bold">
               STRONGER EVERY REP
             </Text>
-            <Text className="text-sm text-gray-300 mt-1">
+            <Text color="$gray300" fontSize="$sm" mt="$1">
               Build muscle and grow.
             </Text>
             <Button
               size="md"
               variant="solid"
-              action="primary"
-              className="mt-4"
-              onPress={() => router.push("/workout")} // Redirige vers une page d'entraînement
+              bg="$primary500"
+              mt="$4"
+              onPress={() => router.push("/(tabs)/workout")}
             >
               <ButtonText>Start Workout</ButtonText>
-              <Icon as={ArrowRightIcon} className="ml-2" />
+              <Icon as={ArrowRightIcon} ml="$2" />
             </Button>
           </Box>
         </Box>
 
         {/* Daily Program */}
-        <Box className="mx-4 mt-6">
-          <HStack className="justify-between items-center mb-2">
-            <Text className="text-lg font-bold text-white">Daily Program</Text>
-            <Button variant="link" onPress={() => router.push("/programs")}>
-              <ButtonText className="text-orange-500">See All</ButtonText>
+        <Box mx="$4" mt="$6">
+          <HStack justifyContent="space-between" alignItems="center" mb="$2">
+            <Text color="$white" fontSize="$lg" fontWeight="$bold">
+              Daily Program
+            </Text>
+            <Button
+              variant="link"
+              onPress={() => router.push("/(tabs)/programs")}
+            >
+              <ButtonText color="$orange500">See All</ButtonText>
             </Button>
           </HStack>
-          <HStack className="space-x-4">
+          <HStack space="md">
             <Button
               variant="outline"
               size="sm"
-              action="secondary"
-              className="border-orange-500"
+              borderColor="$orange500"
+              onPress={() => {}}
             >
-              <ButtonText className="text-orange-500">All Type</ButtonText>
+              <ButtonText color="$orange500">All Type</ButtonText>
             </Button>
-            <Button variant="outline" size="sm" action="secondary">
-              <ButtonText className="text-gray-400">Chest</ButtonText>
+            <Button variant="outline" size="sm" onPress={() => {}}>
+              <ButtonText color="$gray400">Chest</ButtonText>
             </Button>
-            <Button variant="outline" size="sm" action="secondary">
-              <ButtonText className="text-gray-400">Back</ButtonText>
+            <Button variant="outline" size="sm" onPress={() => {}}>
+              <ButtonText color="$gray400">Back</ButtonText>
             </Button>
-            <Button variant="outline" size="sm" action="secondary">
-              <ButtonText className="text-gray-400">Arms</ButtonText>
+            <Button variant="outline" size="sm" onPress={() => {}}>
+              <ButtonText color="$gray400">Arms</ButtonText>
             </Button>
           </HStack>
         </Box>
 
         {/* Cartes de programmes */}
-        <Box className="mx-4 mt-4">
-          <HStack className="space-x-4">
-            {/* Programme 1 */}
+        <Box mx="$4" mt="$4">
+          <HStack space="md">
             <TouchableOpacity
-              onPress={() => router.push("/program/chest")}
-              className="flex-1"
+              style={{ flex: 1 }}
+              onPress={() => router.push("/(tabs)/program/chest")}
             >
-              <Box className="bg-gray-800 rounded-xl overflow-hidden">
+              <Box bg="$gray800" rounded="$xl" overflow="hidden">
                 <Image
                   source={{
                     uri: "https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
                   }}
                   alt="Chest Program"
-                  className="w-full h-24"
+                  w="$full"
+                  h={24}
                 />
-                <Box className="p-3">
-                  <Text className="text-white font-semibold">
+                <Box p="$3">
+                  <Text color="$white" fontWeight="$semibold">
                     Chest Program
                   </Text>
-                  <Text className="text-gray-400 text-sm">3 x 15 reps</Text>
+                  <Text color="$gray400" fontSize="$sm">
+                    3 x 15 reps
+                  </Text>
                 </Box>
               </Box>
             </TouchableOpacity>
 
-            {/* Programme 2 */}
             <TouchableOpacity
-              onPress={() => router.push("/program/arms")}
-              className="flex-1"
+              style={{ flex: 1 }}
+              onPress={() => router.push("/(tabs)/program/arms")}
             >
-              <Box className="bg-gray-800 rounded-xl overflow-hidden">
+              <Box bg="$gray800" rounded="$xl" overflow="hidden">
                 <Image
                   source={{
                     uri: "https://images.unsplash.com/photo-1605296866985-34b1741a3e3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
                   }}
                   alt="Arms Program"
-                  className="w-full h-24"
+                  w="$full"
+                  h={24}
                 />
-                <Box className="p-3">
-                  <Text className="text-white font-semibold">Arms Program</Text>
-                  <Text className="text-gray-400 text-sm">3 x 12 reps</Text>
+                <Box p="$3">
+                  <Text color="$white" fontWeight="$semibold">
+                    Arms Program
+                  </Text>
+                  <Text color="$gray400" fontSize="$sm">
+                    3 x 12 reps
+                  </Text>
                 </Box>
               </Box>
             </TouchableOpacity>
@@ -128,28 +141,34 @@ export default function HomeScreen() {
         </Box>
 
         {/* Conseil du jour */}
-        <Box className="mx-4 mt-6 bg-yellow-400 rounded-xl p-4">
-          <Text className="text-lg font-bold text-gray-900">
+        <Box mx="$4" mt="$6" bg="$yellow400" rounded="$xl" p="$4">
+          <Text color="$gray900" fontSize="$lg" fontWeight="$bold">
             💡 Conseil du jour
           </Text>
-          <Text className="text-gray-700 mt-1">
+          <Text color="$gray700" mt="$1">
             L'échauffement est essentiel pour éviter les blessures. Pense à bien
             préparer tes muscles !
           </Text>
         </Box>
 
         {/* Objectifs du jour */}
-        <Box className="mx-4 mt-6 bg-gray-800 rounded-xl p-4">
-          <Text className="text-lg font-bold text-white">
+        <Box mx="$4" mt="$6" bg="$gray800" rounded="$xl" p="$4">
+          <Text color="$white" fontSize="$lg" fontWeight="$bold">
             🎯 Objectifs du jour
           </Text>
-          <Text className="text-gray-300 mt-1">✅ Boire 2L d’eau</Text>
-          <Text className="text-gray-300 mt-1">
+          <Text color="$gray300" mt="$1">
+            ✅ Boire 2L d’eau
+          </Text>
+          <Text color="$gray300" mt="$1">
             ✅ Effectuer 3 séries de squats
           </Text>
         </Box>
       </ScrollView>
-      <Navbar activeTab="home" />
+
+      {/* Navbar en bas */}
+      <Box position="absolute" bottom={0} left={0} right={0}>
+        <Navbar activeTab="home" />
+      </Box>
     </SafeAreaView>
   );
 }
