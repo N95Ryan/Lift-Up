@@ -30,12 +30,8 @@ const Header: React.FC<HeaderProps> = ({ userName }) => {
           <Ionicons name="person" size={24} color="white" />
         </View>
         <View style={styles.greeting}>
-          <Text style={styles.userName} numberOfLines={2} adjustsFontSizeToFit>
-            Salut {userName}, prêt à soulever lourd aujourd'hui ?
-          </Text>
-          <Text style={styles.subtitle} numberOfLines={1} adjustsFontSizeToFit>
-            {getGreetingMessage()}
-          </Text>
+          <Text style={styles.welcomeText}>Bienvenue, {userName} ! 💪</Text>
+          <Text style={styles.motivationText}>{getGreetingMessage()}</Text>
         </View>
       </View>
     </View>
@@ -70,16 +66,15 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
   },
-  userName: {
-    fontSize: Math.min(20, width * 0.05),
+  welcomeText: {
+    fontSize: Math.min(24, width * 0.06),
     fontWeight: "bold",
     color: "white",
     flexWrap: "wrap",
   },
-  subtitle: {
-    fontSize: Math.min(14, width * 0.035),
-    color: "white",
-    opacity: 0.9,
+  motivationText: {
+    fontSize: Math.min(16, width * 0.04),
+    marginTop: 5,
     flexWrap: "wrap",
   },
 });

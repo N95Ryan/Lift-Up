@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
+import { Box, Text, HStack } from "@gluestack-ui/themed";
+import { Ionicons } from "@expo/vector-icons";
 
 interface NavbarProps {
   activeTab: string;
@@ -25,90 +26,75 @@ export default function Navbar({ activeTab }: NavbarProps) {
   };
 
   return (
-    <View style={styles.navbar}>
-      <TouchableOpacity
-        style={styles.navItem}
-        onPress={() => handleTabPress("home")}
-      >
-        <Ionicons
-          name={activeTab === "home" ? "home" : "home-outline"}
-          size={24}
-          color={activeTab === "home" ? "#EA5B42" : "#666"}
-        />
-        <Text
-          style={[styles.navText, activeTab === "home" && styles.navTextActive]}
-        >
-          Accueil
-        </Text>
-      </TouchableOpacity>
+    <Box
+      bg="$white"
+      py="$2.5"
+      pb="$6"
+      borderTopLeftRadius="$xl"
+      borderTopRightRadius="$xl"
+      shadowColor="$black"
+      shadowOffset={{ width: 0, height: -2 }}
+      shadowOpacity={0.1}
+      shadowRadius={3}
+      elevation={5}
+    >
+      <HStack justifyContent="space-around" alignItems="center">
+        <TouchableOpacity onPress={() => handleTabPress("home")}>
+          <Box alignItems="center">
+            <Ionicons
+              name={activeTab === "home" ? "home" : "home-outline"}
+              size={24}
+              color={activeTab === "home" ? "#EA5B42" : "#666"}
+            />
+            <Text
+              fontSize="$xs"
+              color={activeTab === "home" ? "$orange500" : "$gray600"}
+              fontWeight={activeTab === "home" ? "$bold" : "$normal"}
+              mt="$1"
+            >
+              Accueil
+            </Text>
+          </Box>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.navItem}
-        onPress={() => handleTabPress("converter")}
-      >
-        <Ionicons
-          name={activeTab === "converter" ? "calculator" : "calculator-outline"}
-          size={24}
-          color={activeTab === "converter" ? "#EA5B42" : "#666"}
-        />
-        <Text
-          style={[
-            styles.navText,
-            activeTab === "converter" && styles.navTextActive,
-          ]}
-        >
-          Conversion
-        </Text>
-      </TouchableOpacity>
+        <TouchableOpacity onPress={() => handleTabPress("converter")}>
+          <Box alignItems="center">
+            <Ionicons
+              name={
+                activeTab === "converter" ? "calculator" : "calculator-outline"
+              }
+              size={24}
+              color={activeTab === "converter" ? "#EA5B42" : "#666"}
+            />
+            <Text
+              fontSize="$xs"
+              color={activeTab === "converter" ? "$orange500" : "$gray600"}
+              fontWeight={activeTab === "converter" ? "$bold" : "$normal"}
+              mt="$1"
+            >
+              Conversion
+            </Text>
+          </Box>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.navItem}
-        onPress={() => handleTabPress("profile")}
-      >
-        <Ionicons
-          name={activeTab === "profile" ? "person" : "person-outline"}
-          size={24}
-          color={activeTab === "profile" ? "#EA5B42" : "#666"}
-        />
-        <Text
-          style={[
-            styles.navText,
-            activeTab === "profile" && styles.navTextActive,
-          ]}
-        >
-          Profil
-        </Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity onPress={() => handleTabPress("profile")}>
+          <Box alignItems="center">
+            <Ionicons
+              name={activeTab === "profile" ? "person" : "person-outline"}
+              size={24}
+              color={activeTab === "profile" ? "#EA5B42" : "#666"}
+            />
+            <Text
+              fontSize="$xs"
+              color={activeTab === "profile" ? "$orange500" : "$gray600"}
+              fontWeight={activeTab === "profile" ? "$bold" : "$normal"}
+              mt="$1"
+            >
+              Profil
+            </Text>
+          </Box>
+        </TouchableOpacity>
+      </HStack>
+    </Box>
   );
 }
-
-const styles = StyleSheet.create({
-  navbar: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    backgroundColor: "white",
-    paddingVertical: 10,
-    paddingBottom: 25,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    elevation: 5,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-  },
-  navItem: {
-    alignItems: "center",
-  },
-  navText: {
-    fontSize: 12,
-    color: "#666",
-    marginTop: 4,
-  },
-  navTextActive: {
-    color: "#EA5B42",
-    fontWeight: "bold",
-  },
-});
