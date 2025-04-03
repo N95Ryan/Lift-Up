@@ -1,6 +1,6 @@
-# Lift Up 🏋️‍♂️
+# Lift Up 🏋️‍♂️ - Train Smarter, Train Better
 
-A mobile application designed for bodybuilders and fitness enthusiasts to easily convert weights between pounds and kilograms.
+Lift Up is a mobile application designed for bodybuilding and fitness enthusiasts. Its aim is to optimize your workouts by allowing you to create a personalized program, instantly convert weights, and track your BMI.
 
 ## Features
 
@@ -34,12 +34,33 @@ yarn start
 
 ## Technologies Used
 
-- [React Native](https://reactnative.dev/)
-- [Expo](https://expo.dev/)
-- [Golang](https://golang.org/)
-- [Gin](https://gin-gonic.com/)
-- [Supabase](https://supabase.com/)
-- [Stripe](https://stripe.com/)
+### **Frontend (Mobile Application)**
+
+- **Framework**: [React Native](https://reactnative.dev/) / [Expo](https://expo.dev/)
+- **Language**: TypeScript
+
+### **UI / UX**
+
+- **Main Frameworks**: [native-base](https://nativebase.io/), [react-native-paper](https://callstack.github.io/react-native-paper/)
+- **Styling**: [tailwindcss](https://tailwindcss.com/), [nativewind](https://www.nativewind.dev/)
+
+### **Backend & Database**
+
+- **Language**: [Go](https://golang.org/)
+- **Backend Framework**: [Gin](https://gin-gonic.com/)
+- **Database**: [Supabase](https://supabase.com/) (PostgreSQL)
+
+### **Services & API**
+
+- **State Management**: [Apollo Client](https://www.apollographql.com/docs/react/)
+- **Push Notifications**: [expo-notifications](https://docs.expo.dev/versions/latest/sdk/notifications/)
+
+### **Tools & DevOps**
+
+- **CI/CD**: GitHub Actions
+- **Versioning**: Git (GitHub)
+- **Testing**: Jest, Jest Expo
+- **API Documentation**: Postman / Swagger
 
 ## 💻 Commands
 
@@ -56,7 +77,7 @@ All commands are run from the root of the project, from a terminal:
 
 ## 👥 Author
 
-Let's connect !
+Let's connect!
 
 - 💻 Portfolio → **[ryan-pina.dev](https://ryan-pina.dev/en)**
 - 💼 LinkedIn → **[Ryan Pina-Silasse](https://www.linkedin.com/in/ryan-pina-silasse/)**
