@@ -8,7 +8,6 @@ import {
   SafeAreaView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import Navbar from "@/components/Navbar";
 
 export default function ConverterScreen() {
   const [kg, setKg] = useState("");
@@ -37,12 +36,12 @@ export default function ConverterScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Convertisseur de poids</Text>
+        <Text style={styles.title}>Weight Converter</Text>
       </View>
 
       <View style={styles.converterContainer}>
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>Kilogrammes (kg)</Text>
+          <Text style={styles.label}>Kilograms (kg)</Text>
           <TextInput
             style={styles.input}
             value={kg}
@@ -51,13 +50,13 @@ export default function ConverterScreen() {
               convertToLbs(text);
             }}
             keyboardType="numeric"
-            placeholder="Entrez le poids en kg"
+            placeholder="Enter weight in kg"
             placeholderTextColor="#666"
           />
         </View>
 
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>Livres (lbs)</Text>
+          <Text style={styles.label}>Pounds (lbs)</Text>
           <TextInput
             style={styles.input}
             value={lbs}
@@ -66,7 +65,7 @@ export default function ConverterScreen() {
               convertToKg(text);
             }}
             keyboardType="numeric"
-            placeholder="Entrez le poids en lbs"
+            placeholder="Enter weight in lbs"
             placeholderTextColor="#666"
           />
         </View>
@@ -79,10 +78,9 @@ export default function ConverterScreen() {
           }}
         >
           <Ionicons name="refresh" size={24} color="white" />
-          <Text style={styles.resetButtonText}>Réinitialiser</Text>
+          <Text style={styles.resetButtonText}>Reset</Text>
         </TouchableOpacity>
       </View>
-      <Navbar activeTab="converter" />
     </SafeAreaView>
   );
 }
