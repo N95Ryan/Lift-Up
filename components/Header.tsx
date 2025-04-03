@@ -13,13 +13,13 @@ const Header: React.FC<HeaderProps> = ({ userName }) => {
     const hour = new Date().getHours();
 
     if (hour >= 5 && hour < 10) {
-      return "Réveille la force en toi ! 💪";
+      return "Wake up the strength within you! 💪";
     } else if (hour >= 10 && hour < 17) {
-      return "Donne tout, fonce ! 🚀";
+      return "Give it your all, go for it! 🚀";
     } else if (hour >= 17 && hour < 21) {
-      return "Termine en feu ! 🔥";
+      return "Finish strong! 🔥";
     } else {
-      return "Les vrais boss s’entraînent la nuit ! 🌙";
+      return "Real bosses train at night! 🌙";
     }
   };
 
@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ userName }) => {
           <Ionicons name="person" size={24} color="white" />
         </View>
         <View style={styles.greeting}>
-          <Text style={styles.welcomeText}>Bienvenue, {userName} ! 💪</Text>
+          <Text style={styles.welcomeText}>Welcome, {userName}! 💪</Text>
           <Text style={styles.motivationText}>{getGreetingMessage()}</Text>
         </View>
       </View>
