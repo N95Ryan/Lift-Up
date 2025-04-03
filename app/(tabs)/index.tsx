@@ -9,6 +9,7 @@ import {
 } from "native-base";
 import Header from "../../components/Header";
 import DailyTip from "../../components/DailyTip";
+import DailyQuote from "@/components/DailyQuote";
 
 export default function TabOneScreen() {
   return (
@@ -17,8 +18,9 @@ export default function TabOneScreen() {
         {/* Header with Greeting */}
         <Header userName={"User"} />
 
-        {/* Daily Tip */}
+        {/* Daily */}
         <DailyTip />
+        <DailyQuote />
 
         {/* Content */}
         <VStack space={4} p={4}>

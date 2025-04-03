@@ -8,12 +8,12 @@ export default function DailyTip() {
         <HStack
           space={3}
           alignItems="center"
-          bg="#fff"
+          bg="#FCE131"
           p={4}
           mx={2}
           rounded="xl"
         >
-          <Icon as={MaterialIcons} name="lightbulb" size="lg" color="#FCE131" />
+          <Icon as={MaterialIcons} name="lightbulb" size="lg" color="black" />
           <Text fontSize="md" flex={1} color="black">
             Drinking water before your workout helps prevent dehydration and
             improves performance.
