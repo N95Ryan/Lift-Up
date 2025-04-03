@@ -7,22 +7,22 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: "white",
+          backgroundColor: "#222725",
           borderTopWidth: 1,
-          borderTopColor: "#E5E5E5",
+          borderTopColor: "#333",
           height: 60,
           paddingBottom: 8,
           paddingTop: 8,
         },
-        tabBarActiveTintColor: "#FF6B00",
-        tabBarInactiveTintColor: "#9CA3AF",
+        tabBarActiveTintColor: "#9E0031",
+        tabBarInactiveTintColor: "#fff",
         headerShown: false,
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Accueil",
+          title: "Home",
           tabBarIcon: ({ color }) => (
             <Icon as={MaterialIcons} name="home" color={color} size="md" />
           ),
@@ -31,7 +31,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="stats"
         options={{
-          title: "Statistiques",
+          title: "Statistics",
           tabBarIcon: ({ color }) => (
             <Icon as={MaterialIcons} name="bar-chart" color={color} size="md" />
           ),
@@ -40,7 +40,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="bookmarks"
         options={{
-          title: "Favoris",
+          title: "Bookmarks",
           tabBarIcon: ({ color }) => (
             <Icon as={MaterialIcons} name="bookmark" color={color} size="md" />
           ),
@@ -49,7 +49,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Profil",
+          title: "Profile",
           tabBarIcon: ({ color }) => (
             <Icon as={MaterialIcons} name="person" color={color} size="md" />
           ),

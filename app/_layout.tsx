@@ -1,12 +1,10 @@
 import { NativeBaseProvider } from "native-base";
 import { Stack } from "expo-router";
-import { useColorScheme } from "react-native";
+import { theme } from "../theme";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <NativeBaseProvider>
+    <NativeBaseProvider theme={theme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>

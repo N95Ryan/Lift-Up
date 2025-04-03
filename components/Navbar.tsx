@@ -48,7 +48,7 @@ export default function Navbar({ activeTab }: NavbarProps) {
               fontWeight={activeTab === "home" ? "bold" : "normal"}
               mt={1}
             >
-              Accueil
+              Home
             </Text>
           </Box>
         </Pressable>
@@ -67,7 +67,7 @@ export default function Navbar({ activeTab }: NavbarProps) {
               fontWeight={activeTab === "converter" ? "bold" : "normal"}
               mt={1}
             >
-              Convertisseur
+              Converter
             </Text>
           </Box>
         </Pressable>
@@ -86,7 +86,7 @@ export default function Navbar({ activeTab }: NavbarProps) {
               fontWeight={activeTab === "profile" ? "bold" : "normal"}
               mt={1}
             >
-              Profil
+              Profile
             </Text>
           </Box>
         </Pressable>

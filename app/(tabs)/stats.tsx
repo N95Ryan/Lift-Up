@@ -5,10 +5,10 @@ export default function StatsScreen() {
     <Box flex={1} bg="white" safeArea>
       <Center flex={1}>
         <Text fontSize="xl" fontWeight="bold">
-          Statistiques
+          Statistics
         </Text>
-        <Text color="gray.500" mt={2}>
-          Bientôt disponible
+        <Text opacity={0.7} mt={2}>
+          Coming soon
         </Text>
       </Center>
     </Box>
