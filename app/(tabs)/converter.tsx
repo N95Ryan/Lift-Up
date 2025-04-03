@@ -8,7 +8,6 @@ import {
   SafeAreaView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import Navbar from "@/components/Navbar";
 
 export default function ConverterScreen() {
   const [kg, setKg] = useState("");
@@ -82,7 +81,6 @@ export default function ConverterScreen() {
           <Text style={styles.resetButtonText}>Reset</Text>
         </TouchableOpacity>
       </View>
-      <Navbar activeTab="converter" />
     </SafeAreaView>
   );
 }
