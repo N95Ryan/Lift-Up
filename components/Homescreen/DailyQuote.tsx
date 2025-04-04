@@ -1,5 +1,4 @@
-import { Box, HStack, Text, Image, VStack, Icon } from "native-base";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Box, Text, Image } from "native-base";
 import { LinearGradient } from "expo-linear-gradient";
 import { View } from "react-native";
 
