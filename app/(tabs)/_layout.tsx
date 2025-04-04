@@ -1,11 +1,17 @@
 import { Tabs } from "expo-router";
 import { Box, Icon, Pressable } from "native-base";
-import { MaterialIcons, Ionicons, FontAwesome5 } from "@expo/vector-icons";
-import { Platform, StyleSheet } from "react-native";
+import {
+  MaterialIcons,
+  Ionicons,
+  FontAwesome5,
+  FontAwesome,
+} from "@expo/vector-icons";
+import { Platform, StyleSheet, Dimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
+  const screenWidth = Dimensions.get("window").width;
 
   return (
     <Tabs
@@ -18,9 +24,11 @@ export default function TabLayout() {
           paddingTop: 8,
           borderRadius: 24,
           position: "absolute",
-          bottom: Platform.OS === "ios" ? insets.bottom + 10 : 20,
-          left: 16,
-          right: 16,
+          bottom: Platform.OS === "ios" ? insets.bottom + 10 : 16,
+          marginHorizontal: "7.5%", // 7.5% de marge de chaque côté = 15% au total
+          width: "85%", // 85% de la largeur de l'écran
+          alignSelf: "center", // Centre la navbar horizontalement
+          left: "7.5%", // Positionne depuis la gauche à 7.5% de l'écran
           elevation: 10,
           shadowColor: "#000",
           shadowOffset: { width: 0, height: -3 },
@@ -49,12 +57,7 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color, focused }) => (
-            <Icon
-              as={Ionicons}
-              name={focused ? "home" : "home-outline"}
-              color={color}
-              size="lg"
-            />
+            <Icon as={FontAwesome5} name="home" color={color} size="md" />
           ),
         }}
       />
@@ -64,10 +67,10 @@ export default function TabLayout() {
           title: "Converter",
           tabBarIcon: ({ color, focused }) => (
             <Icon
-              as={FontAwesome5}
-              name="exchange-alt"
+              as={MaterialIcons}
+              name="change-circle"
               color={color}
-              size="lg"
+              size="md"
             />
           ),
         }}
@@ -77,12 +80,7 @@ export default function TabLayout() {
         options={{
           title: "Statistics",
           tabBarIcon: ({ color, focused }) => (
-            <Icon
-              as={Ionicons}
-              name={focused ? "stats-chart" : "stats-chart-outline"}
-              color={color}
-              size="lg"
-            />
+            <Icon as={Ionicons} name="stats-chart" color={color} size="md" />
           ),
         }}
       />
@@ -91,12 +89,7 @@ export default function TabLayout() {
         options={{
           title: "Bookmarks",
           tabBarIcon: ({ color, focused }) => (
-            <Icon
-              as={Ionicons}
-              name={focused ? "bookmark" : "bookmark-outline"}
-              color={color}
-              size="lg"
-            />
+            <Icon as={Ionicons} name="bookmarks" color={color} size="md" />
           ),
         }}
       />
@@ -105,12 +98,7 @@ export default function TabLayout() {
         options={{
           title: "Profile",
           tabBarIcon: ({ color, focused }) => (
-            <Icon
-              as={Ionicons}
-              name={focused ? "person" : "person-outline"}
-              color={color}
-              size="lg"
-            />
+            <Icon as={FontAwesome} name="user-circle" color={color} size="md" />
           ),
         }}
       />
