@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
-  View,
-  Text,
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  SafeAreaView,
+  Keyboard,
+  TouchableWithoutFeedback,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Box, Text, VStack, HStack, Icon, Pressable } from "native-base";
+import { MaterialIcons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 
 export default function ConverterScreen() {
+  const router = useRouter();
   const [kg, setKg] = useState("");
   const [lbs, setLbs] = useState("");
 
@@ -34,84 +36,104 @@ export default function ConverterScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Weight Converter</Text>
-      </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <Box flex={1} safeArea>
+        <VStack space={4} p={4}>
+          <HStack
+            alignItems="center"
+            justifyContent="center"
+            position="relative"
+          >
+            <Pressable
+              position="absolute"
+              left={0}
+              onPress={() => {
+                Keyboard.dismiss();
+                router.push("/");
+              }}
+              _pressed={{ opacity: 0.7 }}
+            >
+              <HStack alignItems="center" space={1}>
+                <Icon
+                  as={MaterialIcons}
+                  name="arrow-back"
+                  size="md"
+                  color="white"
+                />
+                <Text color="white" fontSize="md">
+                  Home
+                </Text>
+              </HStack>
+            </Pressable>
+            <Text
+              fontSize="2xl"
+              fontWeight="bold"
+              textAlign="center"
+              marginTop={8}
+            >
+              Weight Converter
+            </Text>
+          </HStack>
 
-      <View style={styles.converterContainer}>
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>Kilograms (kg)</Text>
-          <TextInput
-            style={styles.input}
-            value={kg}
-            onChangeText={(text) => {
-              setKg(text);
-              convertToLbs(text);
-            }}
-            keyboardType="numeric"
-            placeholder="Enter weight in kg"
-            placeholderTextColor="#666"
-          />
-        </View>
+          <VStack space={6} mt={6}>
+            <VStack space={2}>
+              <Text fontSize="md" fontWeight="medium">
+                Kilograms (kg)
+              </Text>
+              <TextInput
+                style={styles.input}
+                value={kg}
+                onChangeText={(text) => {
+                  setKg(text);
+                  convertToLbs(text);
+                }}
+                keyboardType="numeric"
+                placeholder="Enter weight in kg"
+                placeholderTextColor="#666"
+                returnKeyType="done"
+                onSubmitEditing={Keyboard.dismiss}
+              />
+            </VStack>
 
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>Pounds (lbs)</Text>
-          <TextInput
-            style={styles.input}
-            value={lbs}
-            onChangeText={(text) => {
-              setLbs(text);
-              convertToKg(text);
-            }}
-            keyboardType="numeric"
-            placeholder="Enter weight in lbs"
-            placeholderTextColor="#666"
-          />
-        </View>
+            <VStack space={2}>
+              <Text fontSize="md" fontWeight="medium">
+                Pounds (lbs)
+              </Text>
+              <TextInput
+                style={styles.input}
+                value={lbs}
+                onChangeText={(text) => {
+                  setLbs(text);
+                  convertToKg(text);
+                }}
+                keyboardType="numeric"
+                placeholder="Enter weight in lbs"
+                placeholderTextColor="#666"
+                returnKeyType="done"
+                onSubmitEditing={Keyboard.dismiss}
+              />
+            </VStack>
 
-        <TouchableOpacity
-          style={styles.resetButton}
-          onPress={() => {
-            setKg("");
-            setLbs("");
-          }}
-        >
-          <Ionicons name="refresh" size={24} color="white" />
-          <Text style={styles.resetButtonText}>Reset</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+            <TouchableOpacity
+              style={styles.resetButton}
+              onPress={() => {
+                Keyboard.dismiss();
+                setKg("");
+                setLbs("");
+              }}
+            >
+              <Text color="white" fontSize="md">
+                Clear
+              </Text>
+            </TouchableOpacity>
+          </VStack>
+        </VStack>
+      </Box>
+    </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#EA5B42",
-  },
-  header: {
-    padding: 20,
-    alignItems: "center",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
-  },
-  converterContainer: {
-    flex: 1,
-    padding: 20,
-    justifyContent: "center",
-  },
-  inputContainer: {
-    marginBottom: 20,
-  },
-  label: {
-    fontSize: 16,
-    color: "white",
-    marginBottom: 8,
-  },
   input: {
     backgroundColor: "white",
     borderRadius: 10,
@@ -120,17 +142,20 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   resetButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    backgroundColor: "#9E0031",
     padding: 15,
     borderRadius: 10,
     marginTop: 20,
+    alignItems: "center",
+    alignSelf: "center",
+    minWidth: 120,
+    width: "40%",
   },
-  resetButtonText: {
-    color: "white",
-    fontSize: 16,
-    marginLeft: 10,
+  keyboardButton: {
+    backgroundColor: "#222725",
+    padding: 15,
+    borderRadius: 10,
+    marginTop: 10,
+    alignItems: "center",
   },
 });

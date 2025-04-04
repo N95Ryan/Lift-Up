@@ -18,7 +18,7 @@ export default function ProfileScreen() {
         <HStack space={4} alignItems="center">
           <Image
             source={{
-              uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop",
+              uri: "https://www.ryan-pina.dev/_next/image?url=%2Fimages%2Fphoto.jpg&w=640&q=100",
             }}
             alt="Profile"
             size="xl"
@@ -28,7 +28,7 @@ export default function ProfileScreen() {
             <Text fontSize="xl" fontWeight="bold">
               Ryan
             </Text>
-            <Text opacity={0.7}>Intermediate Level</Text>
+            <Text opacity={0.7}>Advanced Level</Text>
           </VStack>
         </HStack>
 

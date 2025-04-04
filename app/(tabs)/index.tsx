@@ -2,7 +2,7 @@ import { Box, ScrollView } from "native-base";
 import Header from "../../components/Homescreen/Header";
 import DailyTip from "../../components/Homescreen/DailyTip";
 import DailyQuote from "@/components/Homescreen/DailyQuote";
-import Recommendation from "@/components/Homescreen/Recommendation";
+import MenuButtons from "@/components/Homescreen/MenuButtons";
 
 export default function TabOneScreen() {
   return (
@@ -15,8 +15,8 @@ export default function TabOneScreen() {
         <DailyTip />
         <DailyQuote />
 
-        {/* Recommendations */}
-        <Recommendation />
+        {/* Menu Buttons */}
+        <MenuButtons />
       </ScrollView>
     </Box>
   );

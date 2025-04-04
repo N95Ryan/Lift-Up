@@ -19,7 +19,7 @@ git clone https://github.com/N95Ryan/lift-up.git
 2. Install dependencies :
 
 ```bash
-npx install
+npm install
 ```
 
 3. Start the development server :
