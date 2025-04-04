@@ -1,51 +1,44 @@
 import { Tabs } from "expo-router";
-import { Box, Icon, Pressable } from "native-base";
+import { Icon } from "native-base";
 import {
   MaterialIcons,
   Ionicons,
   FontAwesome5,
   FontAwesome,
 } from "@expo/vector-icons";
-import { Platform, StyleSheet, Dimensions } from "react-native";
+import { Platform, Dimensions, StyleSheet, ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import Constants from "expo-constants";
 
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
   const screenWidth = Dimensions.get("window").width;
 
+  // Detect if the app is running in Expo Go or in local environment
+  const isExpoGo = Constants.appOwnership === "expo";
+
+  // Create the style object based on the environment
+  const tabBarStyle = {
+    ...styles.common,
+    ...(Platform.OS === "ios" ? styles.ios : styles.android),
+    bottom: Platform.OS === "ios" ? insets.bottom + 10 : 16,
+    ...(isExpoGo
+      ? {
+          marginHorizontal: "7.5%",
+          width: "85%",
+          alignSelf: "center",
+          left: "7.5%",
+        }
+      : {
+          left: screenWidth * 0.075,
+          width: screenWidth * 0.85,
+        }),
+  };
+
   return (
     <Tabs
       screenOptions={{
-        tabBarStyle: {
-          backgroundColor: "white",
-          borderTopWidth: 0,
-          height: 60,
-          paddingBottom: 8,
-          paddingTop: 8,
-          borderRadius: 24,
-          position: "absolute",
-          bottom: Platform.OS === "ios" ? insets.bottom + 10 : 16,
-          marginHorizontal: "7.5%", // 7.5% de marge de chaque côté = 15% au total
-          width: "85%", // 85% de la largeur de l'écran
-          alignSelf: "center", // Centre la navbar horizontalement
-          left: "7.5%", // Positionne depuis la gauche à 7.5% de l'écran
-          elevation: 10,
-          shadowColor: "#000",
-          shadowOffset: { width: 0, height: -3 },
-          shadowOpacity: 0.1,
-          shadowRadius: 5,
-          ...Platform.select({
-            ios: {
-              shadowColor: "#000",
-              shadowOffset: { width: 0, height: 2 },
-              shadowOpacity: 0.2,
-              shadowRadius: 4,
-            },
-            android: {
-              elevation: 10,
-            },
-          }),
-        },
+        tabBarStyle: tabBarStyle as ViewStyle,
         tabBarActiveTintColor: "#9E0031",
         tabBarInactiveTintColor: "gray.600",
         tabBarShowLabel: false,
@@ -105,3 +98,28 @@ export default function TabLayout() {
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  common: {
+    backgroundColor: "white",
+    borderTopWidth: 0,
+    height: 60,
+    paddingBottom: 8,
+    paddingTop: 8,
+    borderRadius: 24,
+    position: "absolute",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+  },
+  ios: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+  },
+  android: {
+    elevation: 10,
+  },
+});
