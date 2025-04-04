@@ -55,6 +55,21 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="routine"
+        options={{
+          title: "Routine",
+          tabBarIcon: ({ color, focused }) => (
+            <Icon
+              as={MaterialIcons}
+              name="fitness-center"
+              color={color}
+              size="md"
+            />
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
         name="converter"
         options={{
           title: "Converter",

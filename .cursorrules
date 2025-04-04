@@ -1,0 +1,37 @@
+{
+  "rules": [
+    {
+      "name": "Global Standards",
+      "prompt": "Always write code that is as simple, clean, and optimized as possible. Avoid unnecessary dependencies and abstractions. Comments should always be written in English."
+    },
+    {
+      "name": "Folder Architecture Rule",
+      "prompt": "Follow this folder architecture: components related to a page or screen should be stored in a folder named after that page/screen. Example: components for the 'Clients' screen must go in Components/Clients/. Keep imports clean and relative."
+    },
+    {
+      "name": "React/Next.js: Clean Code",
+      "prompt": "Create or refactor React/Next.js components to be simple, scalable, and efficient. Use TypeScript, TailwindCSS, minimal props, and clear naming. Remove unnecessary logic or dependencies. All comments must be in English."
+    },
+    {
+      "name": "React Native / Expo Best Practices",
+      "prompt": "Write concise and lightweight React Native components using Expo. Use functional components, NativeWind or TailwindCSS for styling, and minimal dependencies. Optimize for performance and code clarity. Comments in English only."
+    },
+    {
+      "name": "Astro Component Rule",
+      "prompt": "Astro components should remain as simple as possible. Avoid using JavaScript when HTML and Tailwind are enough. Keep code light and scalable. Write comments in English only."
+    },
+    {
+      "name": "Go + Gin REST API",
+      "prompt": "Write minimal Go handlers using Gin. Use native libraries unless absolutely necessary. Implement proper error handling, use context, and follow Go idioms. Structure the code clearly. All comments should be in English."
+    },
+    {
+      "name": "Supabase Integration",
+      "prompt": "When using Supabase, keep integrations minimal and secure. Avoid abstraction unless necessary. Use async/await correctly. All code and comments should be clear, concise, and in English."
+    },
+    {
+      "name": "Deployment with Vercel",
+      "prompt": "Ensure code is production-ready and lightweight for Vercel deployments. Remove dev-only dependencies. Optimize static files, SSR components, and environment variables. All comments in English."
+    }
+  ]
+}
+

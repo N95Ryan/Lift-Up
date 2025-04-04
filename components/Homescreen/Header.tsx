@@ -9,9 +9,9 @@ export default function Header({ userName }: HeaderProps) {
     const hour = new Date().getHours();
 
     if (hour >= 5 && hour < 10) {
-      return "Wake up the strength within you ! 💪";
+      return "Wake up the strength within you ! ☀️";
     } else if (hour >= 10 && hour < 17) {
-      return "Give it your all, go for it ! 🚀";
+      return "Give it your all, go for it ! 💪";
     } else if (hour >= 17 && hour < 21) {
       return "Finish strong ! 🔥";
     } else {
