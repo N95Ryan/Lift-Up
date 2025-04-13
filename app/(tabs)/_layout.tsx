@@ -17,8 +17,9 @@ export default function TabLayout() {
     ...styles.tabBar,
     bottom: Platform.OS === "ios" ? insets.bottom + 10 : 16,
     left: "50%",
-    transform: [{ translateX: -screenWidth * 0.425 }], // Half of 85% width
-    width: "85%",
+    transform: [{ translateX: -screenWidth * 0.35 }],
+    width: "70%",
+    paddingHorizontal: 8,
   };
 
   return (
@@ -29,6 +30,9 @@ export default function TabLayout() {
         tabBarInactiveTintColor: "gray.600",
         tabBarShowLabel: false,
         headerShown: false,
+        tabBarItemStyle: {
+          paddingHorizontal: 4,
+        },
       }}
     >
       <Tabs.Screen
@@ -36,7 +40,7 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
-            <Icon as={FontAwesome5} name="home" color={color} size="md" />
+            <Icon as={FontAwesome5} name="home" color={color} size="lg" />
           ),
         }}
       />
@@ -49,7 +53,7 @@ export default function TabLayout() {
               as={MaterialIcons}
               name="fitness-center"
               color={color}
-              size="md"
+              size="lg"
             />
           ),
         }}
@@ -63,7 +67,7 @@ export default function TabLayout() {
               as={MaterialIcons}
               name="change-circle"
               color={color}
-              size="md"
+              size="lg"
             />
           ),
         }}
@@ -73,7 +77,7 @@ export default function TabLayout() {
         options={{
           title: "Statistics",
           tabBarIcon: ({ color }) => (
-            <Icon as={Ionicons} name="stats-chart" color={color} size="md" />
+            <Icon as={Ionicons} name="stats-chart" color={color} size="lg" />
           ),
         }}
       />
@@ -82,7 +86,7 @@ export default function TabLayout() {
         options={{
           title: "Profile",
           tabBarIcon: ({ color }) => (
-            <Icon as={FontAwesome} name="user-circle" color={color} size="md" />
+            <Icon as={FontAwesome} name="user-circle" color={color} size="lg" />
           ),
         }}
       />

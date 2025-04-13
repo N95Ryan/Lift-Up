@@ -221,6 +221,7 @@ export default function RoutineScreen() {
               ]}
               disabled={!selectedType}
               onPress={handleCreateRoutine}
+              activeOpacity={0.7}
             >
               <Text color="white" fontSize="md" fontWeight="bold">
                 Create my routine
