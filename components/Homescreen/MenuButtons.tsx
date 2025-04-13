@@ -17,7 +17,7 @@ interface MenuButton {
 const menuButtons: MenuButton[] = [
   {
     id: "1",
-    title: "My Routine",
+    title: "My Routines",
     description: "Create your personalized workout routine",
     icon: "fitness-center",
     route: "/routine",
