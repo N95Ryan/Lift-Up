@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Image } from "react-native";
+import { View, Image, Dimensions } from "react-native";
 import Animated, {
   useAnimatedStyle,
   withSpring,
@@ -15,6 +15,7 @@ interface SplashScreenProps {
 export const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
   const opacity = useSharedValue(0);
   const scale = useSharedValue(0.3);
+  const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
   useEffect(() => {
     opacity.value = withTiming(1, { duration: 1000 });
@@ -38,15 +39,34 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
   });
 
   return (
-    <View className="flex-1 items-center justify-center bg-white">
+    <View
+      style={{
+        flex: 1,
+        width: screenWidth,
+        height: screenHeight,
+        backgroundColor: "white",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Animated.View
-        style={animatedStyle}
-        className="items-center justify-center"
+        style={[
+          animatedStyle,
+          {
+            alignItems: "center",
+            justifyContent: "center",
+            width: screenWidth * 0.3,
+            height: screenWidth * 0.3,
+          },
+        ]}
       >
         <Image
           source={require("../assets/images/logo.png")}
-          className="w-[50px] h-[50px]"
-          resizeMode="contain"
+          style={{
+            width: "100%",
+            height: "100%",
+            resizeMode: "contain",
+          }}
         />
       </Animated.View>
     </View>
